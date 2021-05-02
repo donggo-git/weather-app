@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Header from './Header'
 function App() {
   useEffect(() => {
     async function fetchData() {
@@ -11,7 +12,7 @@ function App() {
   }, [])
   return (
     <div>
-
+      <Header />
     </div>
   )
 }
