@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './Header'
+import LocationForm from './LocationForm'
 function App() {
   useEffect(() => {
     async function fetchData() {
@@ -12,7 +13,8 @@ function App() {
   }, [])
   return (
     <div>
-      <Header />
+
+      <LocationForm />
     </div>
   )
 }
