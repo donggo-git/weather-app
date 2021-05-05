@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './Header'
-import LocationForm from './LocationForm'
+import LocationForm from './LocationForm';
+import Banner from './Banner'
 function App() {
   useEffect(() => {
     async function fetchData() {
@@ -14,7 +15,7 @@ function App() {
   return (
     <div>
       <LocationForm />
-
+      <Banner location="Seattle" temperature={52} />
     </div>
   )
 }
