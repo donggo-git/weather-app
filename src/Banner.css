@@ -4,6 +4,7 @@
     padding: 15px 0;
     background-position: center;
     background-size: cover;
+    cursor: pointer;
 }
 .location{
     flex:0.9;

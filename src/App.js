@@ -4,6 +4,7 @@ import Header from './Header'
 import LocationForm from './LocationForm';
 import Banner from './Banner';
 import './App.css'
+import HomePage from './HomePage';
 function App() {
   useEffect(() => {
     async function fetchData() {
@@ -13,10 +14,13 @@ function App() {
     }
     fetchData()
   }, [])
+  const [location, setLocation] = useState(["Seattle"])
+  const addLocation = (e) => {
+
+  }
   return (
     <div>
-      <LocationForm />
-      <Banner location="Seattle" temperature={52} />
+      <HomePage />
     </div>
   )
 }
