@@ -1,0 +1,20 @@
+.Banner__container{
+    width: 100%;
+    display: flex;
+    padding: 15px 0;
+    background-position: center;
+    background-size: cover;
+}
+.location{
+    flex:0.9;
+    margin-left: 30px;
+}
+.temperature{
+    position: relative;
+}
+.temperature>div{
+    position: absolute;
+    transform: scale(0.8);
+    top:-12px;
+    right: -12px;
+}

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './Header'
 import LocationForm from './LocationForm';
-import Banner from './Banner'
+import Banner from './Banner';
+import './App.css'
 function App() {
   useEffect(() => {
     async function fetchData() {
