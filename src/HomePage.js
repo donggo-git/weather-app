@@ -2,11 +2,17 @@ import React from 'react'
 import LocationForm from './LocationForm';
 import Banner from './Banner';
 
-function homePage() {
+function homePage(props) {
+    console.log(props.locations);
     return (
         <div>
-            <LocationForm />
-            <Banner location="Seattle" temperature={52} />
+            <LocationForm addLocation={props.addLocation} />
+            {
+                props.locations.map(location => (
+                    <Banner location={location} temperature={52} key={location} />
+                ))
+            }
+
         </div>
     )
 }

@@ -31,3 +31,6 @@
 .LocationForm__content input:focus{
     outline: none;
 }
+.LocationForm__btn{
+    cursor: pointer;
+}
