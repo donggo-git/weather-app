@@ -25,6 +25,7 @@ function HomePage(props) {
                 tempData.map(tempLocation => (
                     <Banner location={tempLocation.data.location.name}
                         temperature={tempLocation.data.current.temp_f}
+                        condition={tempLocation.data.current.text}
                         key={tempLocation.data.location.name} />
                 ))
             }

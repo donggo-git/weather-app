@@ -7,7 +7,7 @@ function App() {
 
   const addLocation = (e) => {
     console.log(e)
-    if (e === "") {
+    if ((e === "") || location.indexOf(e) != -1) {
       return;
     }
     else {
