@@ -16,10 +16,15 @@ function App() {
       setLocation(newLocation);
     }
   }
-
+  const RemoveLocation = (e) => {
+    let newLocation = [...location];
+    newLocation = newLocation.filter((locate) => locate !== e);
+    console.log(newLocation)
+    setLocation(newLocation);
+  }
   return (
     <div>
-      <HomePage locations={location} addLocation={addLocation} />
+      <HomePage locations={location} addLocation={addLocation} RemoveLocation={RemoveLocation} />
     </div>
   )
 }

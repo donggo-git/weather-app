@@ -26,6 +26,7 @@ function HomePage(props) {
                     <Banner location={tempLocation.data.location.name}
                         temperature={tempLocation.data.current.temp_f}
                         condition={tempLocation.data.current.text}
+                        RemoveLocation={props.RemoveLocation}
                         key={tempLocation.data.location.name} />
                 ))
             }
