@@ -1,6 +1,6 @@
 import React from 'react'
 import './Banner.css'
-
+import { AiOutlineClose } from "react-icons/ai"
 function Banner(props) {
     let nightBackground = 'https://th.bing.com/th/id/R11a1313280a58f3fedc57cfee0a42f27?rik=vRDvRgov3JJ%2f8Q&riu=http%3a%2f%2fweb.colby.edu%2fcensorshipeventsblog%2ffiles%2f2014%2f06%2fStarryNight3.jpg&ehk=BeggTW78z%2b0DnGAeVRqsUYVr2WRMT3PCrgV1RPjK0Mg%3d&risl=&pid=ImgRaw';
     let sunnyBackground = 'https://www.androidpolice.com/wp-content/uploads/2014/06/nexusae0_bg_weather_sunny_day.jpg';
@@ -27,7 +27,9 @@ function Banner(props) {
         >
             <h2 className='location'>{props.location}</h2>
             <h2 className='temperature'>{props.temperature}<div>o</div></h2>
-            <button onClick={() => props.RemoveLocation(props.location)}></button>
+            <button
+                className='deleteButton'
+                onClick={() => props.RemoveLocation(props.location)}><AiOutlineClose /></button>
         </div>
     )
 }
