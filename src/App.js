@@ -34,12 +34,13 @@ function App() {
   }
   return (
     <div>
-      <HomePage
+      {/*<HomePage
         locations={location}
         addLocation={addLocation}
         RemoveLocation={RemoveLocation}
         tempData={tempData}
-      />
+      />*/}
+      <DetailPage />
     </div>
   )
 }
