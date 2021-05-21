@@ -12,8 +12,17 @@ function DetailPage() {
                         <h2>Seattle</h2>
                         <p>Possibly rain</p>
                     </div>
-                    <h1>50o</h1>
-                    <p>C:59o T:43o</p>
+                    <div className="degreeContainer degreeF">
+                        50<div>o</div>
+                    </div>
+                    <div className="otherDegree">
+                        <div className="degreeContainer">
+                            C:59<div>o</div>
+                        </div>
+                        <div className="degreeContainer">
+                            T:43<div>o</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {
