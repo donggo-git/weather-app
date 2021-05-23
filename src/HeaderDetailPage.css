@@ -1,0 +1,30 @@
+.DetailPage__headerContainer{
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    font-weight: 200;
+}
+.DetailPage__header{
+    position: absolute;
+    top: 45%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.degreeContainer{
+    display: flex;
+    position: relative;
+    margin: 0 10px;
+}
+.degreeF{
+    font-size: 60px;
+}
+.degreeContainer>div{
+    position: absolute;
+    top: -25%;
+    right: -10px;
+    transform: scale(0.8);
+}
+.otherDegree{
+    display: flex;
+}

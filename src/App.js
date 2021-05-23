@@ -6,6 +6,7 @@ import request from './request'
 function App() {
   const [location, setLocation] = useState(["Seattle"]);
   const [tempData, setTempData] = useState([]);
+  const [detailTemp, setDetailTemp] = useState({});
   useEffect(() => {
     async function fetchData() {
       const requests = await Promise.all(location.map(location => request(location)))
@@ -32,15 +33,21 @@ function App() {
     console.log(newLocation)
     setLocation(newLocation);
   }
+  const changeDetailPage = (e) => {
+    console.log(e)
+  }
   return (
     <div>
-      {/*<HomePage
+      <HomePage
         locations={location}
         addLocation={addLocation}
         RemoveLocation={RemoveLocation}
         tempData={tempData}
-      />*/}
-      <DetailPage />
+        changeDetailPage={changeDetailPage}
+      />
+      <DetailPage
+
+      />
     </div>
   )
 }

@@ -1,33 +1,30 @@
 import React from 'react'
-import './DetailPage.css'
+import './DetailPage.css';
+import HeaderDetailPage from './HeaderDetailPage';
 
-function DetailPage() {
+function DetailPage({ condition }) {
+    let sunnyBackground = 'https://www.androidpolice.com/wp-content/uploads/2014/06/nexusae0_bg_weather_sunny_day.jpg';
+    let rainBackground = 'https://ak7.picdn.net/shutterstock/videos/9915767/thumb/1.jpg';
+    const checkCondition = (condition) => {
+        if (condition == "Parttly cloudy") {
+            return sunnyBackground;
+        }
+        else {
+            return rainBackground
+        }
+    }
+    const backgroundStyle = {
+        backgroundImage: `url(${checkCondition}})`
+    }
     return (
         <div className="DetailPage">
             {//Header of detailPage
             }
-            <div className="DetailPage__headerContainer">
-                <div className="DetailPage__header">
-                    <div className="DetailPage__header__location">
-                        <h2>Seattle</h2>
-                        <p>Possibly rain</p>
-                    </div>
-                    <div className="degreeContainer degreeF">
-                        50<div>o</div>
-                    </div>
-                    <div className="otherDegree">
-                        <div className="degreeContainer">
-                            C:59<div>o</div>
-                        </div>
-                        <div className="degreeContainer">
-                            T:43<div>o</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <HeaderDetailPage />
             {
                 //content of detailPage
             }
+
             {
                 //footer of the detailPage
             }

@@ -3,19 +3,25 @@ import LocationForm from './LocationForm';
 import Banner from './Banner';
 
 
-function HomePage(props) {
-
-
+function HomePage({ location, addLocation, RemoveLocation, tempData, changeDetailPage }) {
+    //location
+    //addLocation
+    //RemoveLocation
+    //tempData
+    //changeDetailPage
     return (
         <div>
-            <LocationForm addLocation={props.addLocation} />
+            <LocationForm addLocation={addLocation} />
             {
-                props.tempData.map(tempLocation => (
+                tempData.map(tempLocation => (
                     <Banner location={tempLocation.data.location.name}
                         temperature={tempLocation.data.current.temp_f}
                         condition={tempLocation.data.forecast.forecastday[0].day.condition.text}
-                        RemoveLocation={props.RemoveLocation}
-                        key={tempLocation.data.location.name} />
+                        RemoveLocation={RemoveLocation}
+                        key={tempLocation.data.location.name}
+                        changeDetailPage={changeDetailPage}
+                        data={tempLocation.data}
+                    />
                 ))
             }
 
