@@ -24,7 +24,6 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), 
     url(${checkCondition(data.forecast.forecastday[0].day.condition.text)}`
     };
-    console.log(styled)
     return (
         <div
             className="Banner__container"

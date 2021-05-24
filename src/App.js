@@ -6,7 +6,8 @@ import request from './request'
 function App() {
   const [location, setLocation] = useState(["Seattle"]);
   const [tempData, setTempData] = useState([]);
-  const [detailTemp, setDetailTemp] = useState({});
+  const [detailData, setDetailData] = useState([]);
+  const [detailLocation, setDetailLocation] = useState();
   useEffect(() => {
     async function fetchData() {
       const requests = await Promise.all(location.map(location => request(location)))
@@ -30,11 +31,12 @@ function App() {
   const RemoveLocation = (e) => {
     let newLocation = [...location];
     newLocation = newLocation.filter((locate) => locate !== e);
-    console.log(newLocation)
     setLocation(newLocation);
   }
   const changeDetailPage = (e) => {
-    console.log(e)
+    console.log(e);
+    setDetailData(e.forecast.forecastday);
+    setDetailLocation(e.location.name)
   }
   return (
     <div>
@@ -46,7 +48,8 @@ function App() {
         changeDetailPage={changeDetailPage}
       />
       <DetailPage
-
+        detailData={detailData}
+        detailLocation={detailLocation}
       />
     </div>
   )
