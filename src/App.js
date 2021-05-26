@@ -35,7 +35,7 @@ function App() {
   }
   const changeDetailPage = (e) => {
     console.log(e);
-    setDetailData(e.forecast.forecastday);
+    setDetailData(e);
     setDetailLocation(e.location.name)
   }
   return (

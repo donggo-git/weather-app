@@ -22,9 +22,19 @@
 .degreeContainer>div{
     position: absolute;
     top: -25%;
-    right: -10px;
+    right: -30%;
     transform: scale(0.8);
 }
 .otherDegree{
     display: flex;
+}
+.DetailPage__header__location{
+    position: fixed;
+    top: -10;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+.DetailPage__header__degree{
+    margin-top: 50px;
 }

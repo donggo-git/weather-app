@@ -8,7 +8,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
 
     // check condition of the weather
     const checkCondition = (condition) => {
-        if (condition == "Parttly cloudy") {
+        if (condition == "Partly cloudy") {
             return sunnyBackground;
         }
         else {

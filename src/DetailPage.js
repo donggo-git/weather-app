@@ -24,7 +24,7 @@ function DetailPage({ detailData, detailLocation }) {
             {//Header of detailPage
             }
             <HeaderDetailPage
-                detailDataHeader={detailData[0]}
+                detailDataHeader={detailData}
                 detailLocation={detailLocation} />
             {
                 //content of detailPage
