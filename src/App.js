@@ -6,7 +6,7 @@ import request from './request'
 function App() {
   const [location, setLocation] = useState(["Seattle"]);
   const [tempData, setTempData] = useState([]);
-  const [detailData, setDetailData] = useState([]);
+  const [detailData, setDetailData] = useState();
   const [detailLocation, setDetailLocation] = useState();
   useEffect(() => {
     async function fetchData() {

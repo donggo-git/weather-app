@@ -19,11 +19,15 @@
 .degreeF{
     font-size: 60px;
 }
+
 .degreeContainer>div{
     position: absolute;
     top: -25%;
-    right: -30%;
+    right: -25%;
     transform: scale(0.8);
+}
+.degreeF>div{
+    right: 10%;
 }
 .otherDegree{
     display: flex;
