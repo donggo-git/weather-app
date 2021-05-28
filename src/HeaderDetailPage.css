@@ -15,9 +15,11 @@
     display: flex;
     position: relative;
     margin: 0 10px;
+    justify-content: center;
 }
 .degreeF{
     font-size: 60px;
+    width: auto;
 }
 
 .degreeContainer>div{
@@ -27,18 +29,9 @@
     transform: scale(0.8);
 }
 .degreeF>div{
-    right: 10%;
+    right: -30%;
 }
 .otherDegree{
     display: flex;
-}
-.DetailPage__header__location{
-    position: fixed;
-    top: -10;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-}
-.DetailPage__header__degree{
-    margin-top: 50px;
+    justify-content: center;
 }

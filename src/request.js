@@ -5,7 +5,7 @@ const request = (location) => {
     const getRequest = axios.get(`
     ${BASE_URL}
     forecast.json?key=${API_KEY}
-    &q=${location}&days=5&aqi=no&alerts=no`);
+    &q=${location}&days=7&aqi=no&alerts=no`);
     return getRequest;
 }
 export default request;

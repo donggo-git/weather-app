@@ -18,7 +18,6 @@ function App() {
   }, [location])
 
   const addLocation = (e) => {
-    console.log(e)
     if ((e === "") || location.indexOf(e) != -1) {
       return;
     }
@@ -34,7 +33,6 @@ function App() {
     setLocation(newLocation);
   }
   const changeDetailPage = (e) => {
-    console.log(e);
     setDetailData(e);
     setDetailLocation(e.location.name)
   }

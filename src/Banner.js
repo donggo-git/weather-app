@@ -22,7 +22,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     const styled = {
         backgroundImage: `
     linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), 
-    url(${checkCondition(data.forecast.forecastday[0].day.condition.text)}`
+    url(${checkCondition(data.current?.condition?.text)}`
     };
     return (
         <div
@@ -35,6 +35,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
             <button
                 className='deleteButton'
                 onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose /></button>
+            <img src="http://cdn.weatherapi.com/weather/64x64/night/116.png" />
         </div>
     )
 }
