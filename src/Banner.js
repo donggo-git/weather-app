@@ -35,7 +35,6 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
             <button
                 className='deleteButton'
                 onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose /></button>
-            <img src="http://cdn.weatherapi.com/weather/64x64/night/116.png" />
         </div>
     )
 }

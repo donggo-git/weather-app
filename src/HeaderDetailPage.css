@@ -1,8 +1,9 @@
 .DetailPage__headerContainer{
     position: relative;
-    height: 50vh;
+    height: auto;
     width: 100%;
     font-weight: 200;
+    height: 50vh;
 }
 .DetailPage__header{
     position: absolute;
