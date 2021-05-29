@@ -8,7 +8,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
 
     // check condition of the weather
     const checkCondition = (condition) => {
-        if (condition == "Partly cloudy") {
+        if (condition == "Partly cloudy" || condition == "Sunny" || condition == "Clear") {
             return sunnyBackground;
         }
         else {
@@ -21,7 +21,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     //
     const styled = {
         backgroundImage: `
-    linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), 
+    linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0)), 
     url(${checkCondition(data.current?.condition?.text)}`
     };
     return (
