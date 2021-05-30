@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './DetailPage.css';
 import HeaderDetailPage from './HeaderDetailPage';
 import HourTempToday from './HourTempToday';
-import predit7Day from './predit7Day'
+import Forecast3Days from './Forecast3Days'
 
 function DetailPage({ detailData, detailLocation }) {
     let sunnyBackground = 'https://www.androidpolice.com/wp-content/uploads/2014/06/nexusae0_bg_weather_sunny_day.jpg';
@@ -19,6 +19,7 @@ function DetailPage({ detailData, detailLocation }) {
     let backgroundStyle = {
         backgroundImage: `url(${checkCondition(detailData?.current?.condition?.text)})`
     }
+    console.log(detailData);
     return (
         <div
             className="DetailPage"
@@ -34,6 +35,7 @@ function DetailPage({ detailData, detailLocation }) {
             <HourTempToday
                 hours={detailData?.forecast?.forecastday[0]?.hour}
             />
+            <Forecast3Days forecastday={detailData?.forecast?.forecastday} />
             {
                 //footer of the detailPage
             }
