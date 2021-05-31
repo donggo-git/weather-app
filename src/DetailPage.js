@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import './DetailPage.css';
 import HeaderDetailPage from './HeaderDetailPage';
 import HourTempToday from './HourTempToday';
-import Forecast3Days from './Forecast3Days'
+import Forecast3Days from './Forecast3Days';
+import DetailFooter from './DetailFooter';
+import DetailFooterLine from './DetailFooterLine';
 
 function DetailPage({ detailData, detailLocation }) {
     let sunnyBackground = 'https://www.androidpolice.com/wp-content/uploads/2014/06/nexusae0_bg_weather_sunny_day.jpg';
@@ -39,6 +41,7 @@ function DetailPage({ detailData, detailLocation }) {
             {
                 //footer of the detailPage
             }
+            <DetailFooter forecastday={detailData?.forecast?.forecastday[0]} />
         </div>
     )
 }

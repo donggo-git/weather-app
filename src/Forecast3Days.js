@@ -8,8 +8,8 @@ function Predit7Day({ forecastday }) {
     }
     return (
         <div className="Forecast3Days_container">
-            {forecastday ? forecastday.map(day => (
-                <div className="Forecast1Day">
+            {forecastday ? forecastday.map((day, index) => (
+                <div className="Forecast1Day" key={index}>
                     <div className="Forecast1Day_date">{modifyDate(day.date)}</div>
                     <div className="Forecast1Day_img_container">
                         <img src={day.day.condition.icon} />
