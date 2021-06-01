@@ -17,8 +17,12 @@ function DetailFooter({ forecastday }) {
                 rightTitle={"Snow chance"}
                 rightNumber={forecastday?.day?.daily_chance_of_snow + "%"}
             />
-            <div className="detailFooter_line"></div>
-            <div className="detailFooter_line"></div>
+            < DetailFooterLine
+                leftTitle={"Precipitation"}
+                leftNumber={forecastday?.day?.totalprecip_in}
+                rightTitle={"Max wind"}
+                rightNumber={forecastday?.day?.maxwind_mph}
+            />
         </div>
     )
 }
