@@ -5,6 +5,7 @@
     font-weight: 200;
     height: 50vh;
 }
+
 .DetailPage__header{
     position: absolute;
     top: 45%;
@@ -35,4 +36,17 @@
 .otherDegree{
     display: flex;
     justify-content: center;
+}
+.backBtn{
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+.backBtn:hover{
+    background-color: rgba(255, 255, 255, 0.2);
 }

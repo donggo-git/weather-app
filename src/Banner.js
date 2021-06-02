@@ -1,24 +1,38 @@
 import React from 'react'
 import './Banner.css'
 import { AiOutlineClose } from "react-icons/ai"
+import { Link } from 'react-router-dom'
+
 function Banner({ data, RemoveLocation, changeDetailPage }) {
-    let nightBackground = 'https://th.bing.com/th/id/R11a1313280a58f3fedc57cfee0a42f27?rik=vRDvRgov3JJ%2f8Q&riu=http%3a%2f%2fweb.colby.edu%2fcensorshipeventsblog%2ffiles%2f2014%2f06%2fStarryNight3.jpg&ehk=BeggTW78z%2b0DnGAeVRqsUYVr2WRMT3PCrgV1RPjK0Mg%3d&risl=&pid=ImgRaw';
+    let nightBackground = 'https://wallpapercave.com/wp/wp2077619.jpg'
+    let rainNightBackground = 'https://wallpapercave.com/wp/wp2529651.jpg'
     let sunnyBackground = 'https://www.androidpolice.com/wp-content/uploads/2014/06/nexusae0_bg_weather_sunny_day.jpg';
     let rainBackground = 'https://ak7.picdn.net/shutterstock/videos/9915767/thumb/1.jpg';
 
+    const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
+    let sunset = parseInt(data?.forecast?.forecastday[0]?.astro?.sunset.split(":")[0])
+    let hour = new Date().getHours();
+    let IsMorning = hour >= 12 ? true : false;
+
     // check condition of the weather
     const checkCondition = (condition) => {
-        if (condition == "Partly cloudy" || condition == "Sunny" || condition == "Clear") {
-            return sunnyBackground;
+        if (IsMorning && (hour - 12 > sunset)) {
+            if (notRainCondition.indexOf(condition) >= 0) {
+                return nightBackground;
+            }
+            else {
+                return rainNightBackground
+            }
         }
         else {
-            return rainBackground
+            if (condition == "Partly cloudy" || condition == "Sunny" || condition == "Clear") {
+                return sunnyBackground;
+            }
+            else {
+                return rainBackground
+            }
         }
     }
-    //data.location.name
-    //data.current.temp_f
-    //data.forecast.forecastday[0].day.condition.text
-    //
     const styled = {
         backgroundImage: `
     linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0)), 
@@ -30,12 +44,14 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
             style={styled}
             onClick={() => changeDetailPage(data)}
         >
-            <h2 className='location'>{data.location.name}</h2>
+            <Link to="/detail" className='location'>
+                <h2 >{data.location.name}</h2>
+            </Link>
             <h2 className='temperature'>{data.current.temp_f}<div>o</div></h2>
             <button
                 className='deleteButton'
                 onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose /></button>
-        </div>
+        </div >
     )
 }
 

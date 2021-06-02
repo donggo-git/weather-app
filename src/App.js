@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import HomePage from './HomePage';
 import DetailPage from './DetailPage';
-import request from './request'
+import request from './request';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
 function App() {
   const [location, setLocation] = useState(["Seattle"]);
   const [tempData, setTempData] = useState([]);
@@ -38,17 +41,26 @@ function App() {
   }
   return (
     <div>
-      <HomePage
-        locations={location}
-        addLocation={addLocation}
-        RemoveLocation={RemoveLocation}
-        tempData={tempData}
-        changeDetailPage={changeDetailPage}
-      />
-      <DetailPage
-        detailData={detailData}
-        detailLocation={detailLocation}
-      />
+      <BrowserRouter>
+        <switch>
+          <Route path="/" component={() => (
+            < HomePage
+              locations={location}
+              addLocation={addLocation}
+              RemoveLocation={RemoveLocation}
+              tempData={tempData}
+              changeDetailPage={changeDetailPage}
+            />)}
+            exact
+          />
+          <Route path="/detail" component={() => (
+            <DetailPage
+              detailData={detailData}
+              detailLocation={detailLocation}
+            />)}
+          />
+        </switch>
+      </BrowserRouter>
     </div>
   )
 }

@@ -6,9 +6,12 @@
     background-size: cover;
     cursor: pointer;
 }
+
 .location{
     flex:0.9;
     margin-left: 30px;
+    color: #fff;
+    text-decoration: none;
 }
 .temperature{
     position: relative;

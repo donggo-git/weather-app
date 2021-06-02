@@ -13,10 +13,12 @@ function DetailPage({ detailData, detailLocation }) {
     let nightBackground = 'https://wallpapercave.com/wp/wp2077619.jpg'
     let rainNightBackground = 'https://wallpapercave.com/wp/wp2529651.jpg'
     let sunset = parseInt(detailData?.forecast?.forecastday[0]?.astro?.sunset.split(":")[0])
+    const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
+
     const checkCondition = (condition) => {
         console.log(hour - 12)
-        if (IsMorning ? (hour - 12 > sunset) : false) {
-            if (condition == "Partly cloudy" || condition == "Sunny" || condition == "Clear") {
+        if (IsMorning && (hour - 12 > sunset)) {
+            if (notRainCondition.indexOf(condition) >= 0) {
                 return nightBackground;
             }
             else {
