@@ -1,7 +1,7 @@
 import React from 'react'
 import './Banner.css'
 import { AiOutlineClose } from "react-icons/ai"
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Banner({ data, RemoveLocation, changeDetailPage }) {
     let nightBackground = 'https://wallpapercave.com/wp/wp2077619.jpg'
@@ -44,9 +44,9 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
             style={styled}
             onClick={() => changeDetailPage(data)}
         >
-            <Link to="/detail" className='location'>
+            <NavLink to="/detail" className='location'>
                 <h2 >{data.location.name}</h2>
-            </Link>
+            </NavLink>
             <h2 className='temperature'>{data.current.temp_f}<div>o</div></h2>
             <button
                 className='deleteButton'

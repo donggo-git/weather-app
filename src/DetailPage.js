@@ -40,7 +40,7 @@ function DetailPage({ detailData, detailLocation }) {
 
     return (
         <div
-            className="DetailPage"
+            className="DetailPage page"
             style={backgroundStyle}>
             {//Header of detailPage
             }

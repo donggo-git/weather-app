@@ -3,7 +3,7 @@ import './App.css'
 import HomePage from './HomePage';
 import DetailPage from './DetailPage';
 import request from './request';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
@@ -41,15 +41,15 @@ function App() {
   }
   return (
     <div>
-      <BrowserRouter>
-        <Route render={(location) => (
+      <Router>
+        <Route render={({ location }) => (
           <TransitionGroup>
             <CSSTransition
               key={location.key}
               timeout={300}
               classNames="fade"
             >
-              <switch>
+              <Switch>
                 <Route path="/" component={() => (
                   < HomePage
                     locations={location}
@@ -66,12 +66,12 @@ function App() {
                     detailLocation={detailLocation}
                   />)}
                 />
-              </switch>
+              </Switch>
             </CSSTransition>
           </TransitionGroup>
         )} />
+      </Router>
 
-      </BrowserRouter>
     </div >
   )
 }

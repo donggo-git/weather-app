@@ -1,14 +1,14 @@
 import React from 'react'
 import './HeaderDetailPage.css';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 function HeaderDetailPage({ detailDataHeader, detailLocation }) {
     return (
         <div className="DetailPage__headerContainer">
-            <Link to="/" className="backBtn" >
+            <NavLink to="/" className="backBtn" >
                 <AiOutlineArrowLeft />
-            </Link>
+            </NavLink>
             <div className="DetailPage__header">
 
                 <div className="DetailPage__header__location">

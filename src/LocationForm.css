@@ -3,7 +3,7 @@
     padding: 15px 0;
     display: flex;
     align-items: center;
-    background-color: #333;
+    background-color: rgb(44, 44, 44);
 }
 .LocationForm__content{
     display: flex;

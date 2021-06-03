@@ -10,7 +10,7 @@ function HomePage({ location, addLocation, RemoveLocation, tempData, changeDetai
     //tempData
     //changeDetailPage
     return (
-        <div>
+        <div className='page'>
             <LocationForm addLocation={addLocation} />
             {
                 tempData.map(tempLocation => (
