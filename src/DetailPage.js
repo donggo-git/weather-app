@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './DetailPage.css';
 import HeaderDetailPage from './HeaderDetailPage';
 import HourTempToday from './HourTempToday';

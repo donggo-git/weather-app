@@ -1,0 +1,18 @@
+.item-appear,
+.item-enter{
+  opacity: 0;
+  z-index: 1;
+}
+.item-appear-active,
+.item-enter.item-enter-active{
+  opacity: 1;
+    transition: opacity 300ms linear 150ms;
+}
+.item-exit{
+  transform: translateX(0);
+  opacity: 0;
+}
+.item-exit.item-exit-active{
+  transform: translate(-100%);
+  transition: all 300ms linear;
+}

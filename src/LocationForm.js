@@ -3,7 +3,6 @@ import './LocationForm.css'
 import { BsSearch } from 'react-icons/bs'
 function LocationForm({ addLocation }) {
     const [location, setLocation] = useState("");
-    const [submitLocation, setSubmitLocation] = useState("")
     const onChange = (e) => {
         setLocation(e.target.value);
     }

@@ -2,6 +2,7 @@ import React from 'react'
 import './Banner.css'
 import { AiOutlineClose } from "react-icons/ai"
 import { NavLink } from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function Banner({ data, RemoveLocation, changeDetailPage }) {
     let nightBackground = 'https://wallpapercave.com/wp/wp2077619.jpg'
@@ -39,19 +40,27 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     url(${checkCondition(data.current?.condition?.text)}`
     };
     return (
-        <div
-            className="Banner__container"
-            style={styled}
-            onClick={() => changeDetailPage(data)}
-        >
-            <NavLink to="/detail" className='location'>
-                <h2 >{data.location.name}</h2>
-            </NavLink>
-            <h2 className='temperature'>{data.current.temp_f}<div>o</div></h2>
-            <button
-                className='deleteButton'
-                onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose /></button>
-        </div >
+        <TransitionGroup>
+            <CSSTransition
+                key={data}
+                timeout={500}
+                classNames="item"
+            >
+                <div
+                    className="Banner__container"
+                    style={styled}
+                    onClick={() => changeDetailPage(data)}
+                >
+                    <NavLink to="/detail" className='location'>
+                        <h2 >{data.location.name}</h2>
+                    </NavLink>
+                    <h2 className='temperature'>{data.current.temp_f}<div>o</div></h2>
+                    <button
+                        className='deleteButton'
+                        onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose /></button>
+                </div >
+            </CSSTransition>
+        </TransitionGroup >
     )
 }
 
