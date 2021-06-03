@@ -4,7 +4,7 @@ import HomePage from './HomePage';
 import DetailPage from './DetailPage';
 import request from './request';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
   const [location, setLocation] = useState(["Seattle"]);
@@ -42,26 +42,37 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <switch>
-          <Route path="/" component={() => (
-            < HomePage
-              locations={location}
-              addLocation={addLocation}
-              RemoveLocation={RemoveLocation}
-              tempData={tempData}
-              changeDetailPage={changeDetailPage}
-            />)}
-            exact
-          />
-          <Route path="/detail" component={() => (
-            <DetailPage
-              detailData={detailData}
-              detailLocation={detailLocation}
-            />)}
-          />
-        </switch>
+        <Route render={(location) => (
+          <TransitionGroup>
+            <CSSTransition
+              key={location.key}
+              timeout={300}
+              classNames="fade"
+            >
+              <switch>
+                <Route path="/" component={() => (
+                  < HomePage
+                    locations={location}
+                    addLocation={addLocation}
+                    RemoveLocation={RemoveLocation}
+                    tempData={tempData}
+                    changeDetailPage={changeDetailPage}
+                  />)}
+                  exact
+                />
+                <Route path="/detail" component={() => (
+                  <DetailPage
+                    detailData={detailData}
+                    detailLocation={detailLocation}
+                  />)}
+                />
+              </switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )} />
+
       </BrowserRouter>
-    </div>
+    </div >
   )
 }
 
