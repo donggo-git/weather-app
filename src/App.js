@@ -50,7 +50,7 @@ function App() {
               classNames="fade"
             >
               <Switch>
-                <Route path="/" component={() => (
+                <Route path="/weather-app" component={() => (
                   < HomePage
                     addLocation={addLocation}
                     RemoveLocation={RemoveLocation}

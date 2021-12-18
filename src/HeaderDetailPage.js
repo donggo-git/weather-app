@@ -6,7 +6,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 function HeaderDetailPage({ detailDataHeader, detailLocation }) {
     return (
         <div className="DetailPage__headerContainer">
-            <NavLink to="/" className="backBtn" >
+            <NavLink to="/weather-app" className="backBtn" >
                 <AiOutlineArrowLeft />
             </NavLink>
             <div className="DetailPage__header">
