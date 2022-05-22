@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import HomePage from './HomePage';
-import DetailPage from './DetailPage';
+import HomePage from './HomePage/HomePage';
+import DetailPage from './DetailPage/DetailPage';
 import request from './request';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -49,7 +49,7 @@ function App() {
               timeout={500}
               classNames="fade"
             >
-              <Switch>
+              <Switch itch>
                 <Route path="/weather-app" component={() => (
                   < HomePage
                     addLocation={addLocation}

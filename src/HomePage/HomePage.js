@@ -1,5 +1,5 @@
 import React from 'react'
-import LocationForm from './LocationForm';
+import HomePageHeader from './HomePageHeader';
 import Banner from './Banner';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import "./HomePage.css"
@@ -7,7 +7,7 @@ import "./HomePage.css"
 function HomePage({ addLocation, RemoveLocation, tempData, changeDetailPage }) {
     return (
         <div className='page'>
-            <LocationForm addLocation={addLocation} />
+            <HomePageHeader addLocation={addLocation} />
             <TransitionGroup>
                 {
                     tempData.map(tempLocation => (
