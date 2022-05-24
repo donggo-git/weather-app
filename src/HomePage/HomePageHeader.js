@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './HomePageHeader.css'
 import { BsSearch } from 'react-icons/bs'
-function LocationForm({ addLocation }) {
+import useDebounce from 'C:/project/weather-app/src/Hooks/useDebounce';
+function LocationForm({ addLocation, searchLocation }) {
     const [location, setLocation] = useState("");
-    const onChange = (e) => {
-        setLocation(e.target.value);
+    const [locationInput, setLocationInput] = useState('')
+    const debounce = useDebounce(locationInput, 500)
+    useEffect(() => {
+        if (debounce == '') return;
+        searchLocation(debounce)
+    }, [debounce])
+    const handleSearchInput = (input) => {
+        setLocationInput(input)
     }
     const addSubmitLocation = () => {
         addLocation(location);
         setLocation("");
-
     }
     return (
         <div className="HomePageHeader">
@@ -21,7 +27,7 @@ function LocationForm({ addLocation }) {
                 />
                 <input
                     type="text" placeholder="Add your location" className="HomePageHeader__input"
-                    value={location} onChange={(e) => onChange(e)}
+                    onChange={(e) => handleSearchInput(e.target.value)}
                 />
 
             </div>

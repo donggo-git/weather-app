@@ -1,6 +1,6 @@
 import axios from 'axios';
 let BASE_URL = "https://api.weatherapi.com/v1/";
-let API_KEY = "dfa464158af4491f8e451132213004&q"
+let API_KEY = "dfa464158af4491f8e451132213004"
 const request = (location) => {
     const getRequest = axios.get(`
     ${BASE_URL}

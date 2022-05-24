@@ -4,10 +4,10 @@ import Banner from './Banner';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import "./HomePage.css"
 
-function HomePage({ addLocation, RemoveLocation, tempData, changeDetailPage }) {
+function HomePage({ addLocation, RemoveLocation, tempData, changeDetailPage, searchLocation }) {
     return (
         <div className='page'>
-            <HomePageHeader addLocation={addLocation} />
+            <HomePageHeader addLocation={addLocation} searchLocation={searchLocation} />
             <TransitionGroup>
                 {
                     tempData.map(tempLocation => (
