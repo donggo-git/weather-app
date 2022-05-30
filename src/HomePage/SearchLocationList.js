@@ -3,11 +3,11 @@ import './SearchLocationList.css'
 
 function SearchLocationList({ locationList }) {
     return (
-        <div>
+        <div className='LocationList'>
             {locationList.map(location => (
-                <div>
-                    <p>{location.name}</p>
-                    <p>{location.region}</p>
+                <div className='SearchLocation__container'>
+                    <p className='SearchLocation--name'>{location.name}, </p>
+                    <p className='SearchLocation--region'>{location.region}</p>
                 </div>
             ))}
         </div>

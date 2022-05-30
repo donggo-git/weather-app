@@ -11,7 +11,6 @@ function App() {
   const [tempData, setTempData] = useState([]);
   const [detailData, setDetailData] = useState();
   const [detailLocation, setDetailLocation] = useState();
-  const [locationList, setLocationList] = useState([])
   useEffect(() => {
     async function fetchData() {
       const requests = await Promise.all(location.map(location => request(location)))
@@ -36,11 +35,6 @@ function App() {
     newLocation = newLocation.filter((locate) => locate !== e);
     setLocation(newLocation);
   }
-  const searchLocation = (location) => {
-    fetch(`http://api.weatherapi.com/v1/search.json?key=${'dfa464158af4491f8e451132213004'}&q=${location}`)
-      .then(res => res.json())
-      .then(data => setLocationList(data))
-  }
   const changeDetailPage = (e) => {
     setDetailData(e);
     setDetailLocation(e.location.name)
@@ -62,8 +56,6 @@ function App() {
                     RemoveLocation={RemoveLocation}
                     tempData={tempData}
                     changeDetailPage={changeDetailPage}
-                    searchLocation={searchLocation}
-                    locationList={locationList}
                   />)}
                   exact
                 />

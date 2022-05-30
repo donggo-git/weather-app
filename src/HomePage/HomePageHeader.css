@@ -13,6 +13,8 @@
 }
 
 .HomePageHeader__input__container {
+    position: relative;
+    height: 30px;
     margin: 0;
     background-color: rgb(101, 101, 101);
     padding: 5px 10px;

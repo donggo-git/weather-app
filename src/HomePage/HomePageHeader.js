@@ -3,10 +3,13 @@ import './HomePageHeader.css'
 import { BsSearch } from 'react-icons/bs'
 import useDebounce from 'C:/project/weather-app/src/Hooks/useDebounce';
 import SearchLocationList from './SearchLocationList';
-function LocationForm({ addLocation, searchLocation, locationList }) {
+function LocationForm({ addLocation }) {
     const [location, setLocation] = useState("");
     const [locationInput, setLocationInput] = useState('')
-    const debounce = useDebounce(locationInput, 500)
+    const [locationList, setLocationList] = useState([])
+    const debounce = useDebounce(locationInput, 200)
+
+
     useEffect(() => {
         if (debounce == '') return;
         searchLocation(debounce)
@@ -14,6 +17,12 @@ function LocationForm({ addLocation, searchLocation, locationList }) {
     const handleSearchInput = (input) => {
         setLocationInput(input)
     }
+    const searchLocation = (location) => {
+        fetch(`http://api.weatherapi.com/v1/search.json?key=${'dfa464158af4491f8e451132213004'}&q=${location}`)
+            .then(res => res.json())
+            .then(data => setLocationList(data))
+    }
+
     const addSubmitLocation = () => {
         addLocation(location);
         setLocation("");
