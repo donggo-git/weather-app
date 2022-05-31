@@ -3,7 +3,7 @@ import DetailFooterLine from './DetailFooterLine'
 
 function DetailFooter({ forecastday }) {
     return (
-        <div>
+        <div className='DetailFooter'>
             {/*sun set and sun rise*/}
             < DetailFooterLine
                 leftTitle={"Sun rise"}

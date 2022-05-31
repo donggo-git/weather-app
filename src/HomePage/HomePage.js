@@ -15,16 +15,16 @@ function HomePage({ addLocation, RemoveLocation, tempData, changeDetailPage }) {
                     tempData.map(tempLocation => (
 
                         <CSSTransition
-                            key={tempLocation.data.location.name}
+                            key={tempLocation.location.name}
                             timeout={500}
                             classNames="item"
                         >
-                            <Banner location={tempLocation.data.location.name}
-                                temperature={tempLocation.data.current.temp_f}
-                                condition={tempLocation.data.forecast.forecastday[0].day.condition.text}
+                            <Banner location={tempLocation?.location?.name}
+                                temperature={tempLocation?.current.temp_f}
+                                condition={tempLocation?.forecast.forecastday[0].day.condition.text}
                                 RemoveLocation={RemoveLocation}
                                 changeDetailPage={changeDetailPage}
-                                data={tempLocation.data}
+                                data={tempLocation}
 
                             />
 

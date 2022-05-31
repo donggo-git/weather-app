@@ -1,24 +1,31 @@
-.HourTempContainer{
+.HourTemp__container {
     display: flex;
     overflow-x: scroll;
-    -ms-overflow-style: none; /*hide scroll bar for chrome*/
-    scrollbar-width: none; /*hide scroll bar for firefox*/
+    -ms-overflow-style: none;
+    /*hide scroll bar for chrome*/
+    scrollbar-width: none;
+    /*hide scroll bar for firefox*/
     padding: 5px 0;
-    border-top: 1px solid rgb(214, 214, 214);
-    border-bottom: 1px solid rgb(214, 214, 214);
     font-size: 16px;
+    width: 90%;
+    margin: 5px auto;
+    background-color: rgba(207, 207, 207, 0.3);
+    border-radius: 10px;
 }
-.HourTempContainer::-webkit-scrollbar{
+
+.HourTempContainer::-webkit-scrollbar {
     width: 10px;
 }
-.hourContainer{
+
+.hourContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 8px;
 }
+
 @media only screen and (max-width: 1000px) {
-    .hourContainer>img{
-    height: 40px;
-}
+    .hourContainer>img {
+        height: 40px;
+    }
 }

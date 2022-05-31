@@ -3,7 +3,7 @@ import './HourTempToday.css'
 
 function HourTempToday({ hours }) {
     return (
-        <div className="HourTempContainer">
+        <div className="HourTemp__container">
             {hours ?
                 hours.map(hour => (
                     <div className="hourContainer" key={hour.time}>

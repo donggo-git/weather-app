@@ -1,34 +1,43 @@
-.Forecast3Days_container{
+.Forecast3Days_container {
     padding: 5px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(214, 214, 214);
     font-weight: bold;
     font-size: 18px;
+    width: 90%;
+    background-color: rgba(207, 207, 207, 0.3);
+    border-radius: 10px;
+    margin: 5px auto;
 }
-.Forecast1Day{
+
+.Forecast1Day {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.Forecast1Day_date{
+
+.Forecast1Day_date {
     padding-left: 25px;
 }
-.Forecast1Day_img_container{
+
+.Forecast1Day_img_container {
     flex: 1;
     display: flex;
-justify-content: center;
-align-items: center;
+    justify-content: center;
+    align-items: center;
 }
-.Forecast1Day_img_container>img{
+
+.Forecast1Day_img_container>img {
     height: auto;
 }
-.maxTemp{
+
+.maxTemp {
     padding-right: 30px;
 }
-.minTemp{
+
+.minTemp {
     margin-right: 45px;
     color: rgba(255, 255, 255, 0.9);
 }

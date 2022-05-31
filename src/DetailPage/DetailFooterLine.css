@@ -1,24 +1,33 @@
-.detailFooter_line{
+.DetailFooter {
+    width: 90%;
+    background-color: rgba(207, 207, 207, 0.3);
+    border-radius: 10px;
+    margin: 5px auto;
+}
+
+.detailFooter_line {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
+    width: calc(100% -40px);
     margin: 0 auto;
-    padding: 5px;
     border-bottom: 1px solid rgb(214, 214, 214);
-    padding: 5px 0;
+    padding: 5px 20px;
 }
-.detailFooter_line_side{
+
+.detailFooter_line_side {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.title{
+
+.title {
     font-size: 18px;
     font-weight: 600;
-    color:rgb(235, 235, 235);
+    color: rgb(235, 235, 235);
 }
-.detailFooter_line_number{
+
+.detailFooter_line_number {
     font-size: 22px;
 }

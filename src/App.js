@@ -2,38 +2,48 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import HomePage from './HomePage/HomePage';
 import DetailPage from './DetailPage/DetailPage';
-import request from './request';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
-  const [location, setLocation] = useState(["Seattle"]);
   const [tempData, setTempData] = useState([]);
   const [detailData, setDetailData] = useState();
   const [detailLocation, setDetailLocation] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      const requests = await Promise.all(location.map(location => request(location)))
-      setTempData(requests)
-      return requests
-    }
-    fetchData()
-  }, [location])
 
-  const addLocation = (e) => {
-    if ((e === "") || location.indexOf(e) != -1) {
-      return;
-    }
-    else {
-      let newLocation = [...location];
-      newLocation.push(e);
-      setLocation(newLocation);
-    }
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position)
+    })
+  }, [])
+
+  const fetchData = async function (location) {
+    fetch(`
+    https://api.weatherapi.com/v1/
+    forecast.json?key=${'dfa464158af4491f8e451132213004'}
+    &q=${location}&days=7&aqi=no&alerts=no
+    `)
+      .then(res => {
+        if (!res.ok) console.error(`something went wrong`)
+        return res.json()
+      })
+      .then(function (data) {
+        setTempData([...tempData, data])
+      })
+
+  }
+
+  const addLocation = (location) => {
+    //if tempData has the location already, not add the location to data
+    if (tempData.some(data => {
+      return data.location.name === location
+    })) return
+    fetchData(location)
   }
   const RemoveLocation = (e) => {
-    let newLocation = [...location];
-    newLocation = newLocation.filter((locate) => locate !== e);
-    setLocation(newLocation);
+    console.log(e)
+    let newData = [...tempData]
+    newData = newData.filter(locate => locate.location.name !== e)
+    setTempData(newData)
   }
   const changeDetailPage = (e) => {
     setDetailData(e);

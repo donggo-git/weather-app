@@ -57,7 +57,8 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
                     <h2 className='temperature'>{data.current.temp_f}<div>o</div></h2>
                     <button
                         className='deleteButton'
-                        onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose /></button>
+                        onClick={() => RemoveLocation(data.location.name)}><AiOutlineClose />
+                    </button>
                 </div >
             </CSSTransition>
         </TransitionGroup >

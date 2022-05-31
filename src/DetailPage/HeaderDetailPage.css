@@ -1,4 +1,4 @@
-.DetailPage__headerContainer{
+.DetailPage__headerContainer {
     position: relative;
     height: auto;
     width: 100%;
@@ -6,38 +6,45 @@
     height: 50vh;
 }
 
-.DetailPage__header{
+.DetailPage__header {
     position: absolute;
     top: 45%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4)
 }
-.degreeContainer{
+
+.degreeContainer {
     display: flex;
     position: relative;
     margin: 0 10px;
     justify-content: center;
 }
-.degreeF{
+
+.degreeF {
     font-size: 60px;
     width: auto;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 
-.degreeContainer>div{
+.degreeContainer>div {
     position: absolute;
     top: -25%;
     right: -25%;
     transform: scale(0.8);
 }
-.degreeF>div{
+
+.degreeF>div {
     right: -30%;
 }
-.otherDegree{
+
+.otherDegree {
     display: flex;
     justify-content: center;
 }
-.backBtn{
+
+.backBtn {
     font-size: 25px;
     color: #fff;
     position: absolute;
@@ -47,6 +54,7 @@
     border-radius: 5px;
     transition: all 0.4s;
 }
-.backBtn:hover{
+
+.backBtn:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
