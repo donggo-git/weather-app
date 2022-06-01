@@ -22,7 +22,7 @@ function LocationForm({ addLocation }) {
             .then(data => setLocationList(data))
     }
 
-    const addLocationInput = (location) => {
+    const addLocationInput = (e, location) => {
         addLocation(location);
         setLocationInput("");
     }
