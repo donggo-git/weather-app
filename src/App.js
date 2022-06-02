@@ -12,7 +12,11 @@ function App() {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
+      const { latitude: lat, longitude: lng } = position.coords
       console.log(position)
+      fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+        .then(res => res.json())
+        .then(data => addLocation(data.city))
     })
   }, [])
 
