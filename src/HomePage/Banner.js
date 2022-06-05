@@ -13,13 +13,13 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
     let sunset = parseInt(data?.forecast?.forecastday[0]?.astro?.sunset.split(":")[0])
     let hour = new Date().getHours();
-    let IsMorning = hour >= 12 ? true : false;
+    let IsMorning = data?.current.is_day == 1;
 
     // check condition of the weather
     const checkCondition = (condition) => {
-        if (IsMorning && (hour - 12 > sunset)) {
+        if (IsMorning) {
             if (notRainCondition.indexOf(condition) >= 0) {
-                return nightBackground;
+                return sunnyBackground;
             }
             else {
                 return rainNightBackground
@@ -27,7 +27,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
         }
         else {
             if (condition == "Partly cloudy" || condition == "Sunny" || condition == "Clear") {
-                return sunnyBackground;
+                return nightBackground;
             }
             else {
                 return rainBackground
@@ -49,10 +49,10 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
                 <div
                     className="Banner__container"
                     style={styled}
-                    onClick={() => changeDetailPage(data)}
+                    onClick={() => changeDetailPage(data?.location.name)}
                 >
                     <NavLink to="/detail" className='location'>
-                        <h2 >{data.location.name}</h2>
+                        <h2 >{data?.location.name}</h2>
                     </NavLink>
                     <h2 className='temperature'>{data.current.temp_f}<div>o</div></h2>
                     <button

@@ -21,19 +21,11 @@ function App() {
   }, [])
 
   const fetchData = async function (location) {
-    fetch(`
+    return fetch(`
     https://api.weatherapi.com/v1/
     forecast.json?key=${'dfa464158af4491f8e451132213004'}
     &q=${location}&days=7&aqi=no&alerts=no
     `)
-      .then(res => {
-        if (!res.ok) console.error(`something went wrong`)
-        return res.json()
-      })
-      .then(function (data) {
-        setTempData([...tempData, data])
-      })
-
   }
 
   const addLocation = (location) => {
@@ -41,7 +33,15 @@ function App() {
     if (tempData.some(data => {
       return data.location.name === location
     })) return
-    fetchData(location)
+    //fetch and add data to tempData
+    fetchData(location).then(res => {
+      if (!res.ok) console.error(`something went wrong`)
+      return res.json()
+    })
+      .then(function (data) {
+        setTempData([...tempData, data])
+      })
+
   }
   const RemoveLocation = (e) => {
     console.log(e)
@@ -49,9 +49,15 @@ function App() {
     newData = newData.filter(locate => locate.location.name !== e)
     setTempData(newData)
   }
-  const changeDetailPage = (e) => {
-    setDetailData(e);
-    setDetailLocation(e.location.name)
+  const changeDetailPage = (location) => {
+    fetchData(location).then(res => {
+      if (!res.ok) console.error(`something went wrong`)
+      return res.json()
+    })
+      .then(function (data) {
+        setDetailData(data);
+        setDetailLocation(location)
+      })
   }
   return (
     <div>

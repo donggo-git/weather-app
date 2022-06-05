@@ -20,6 +20,12 @@
     background-color: rgb(125, 125, 125);
 }
 
+.SearchLocation__location {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
 .SearchLocation--name {
     font-size: 20px;
     margin: 0 5px;

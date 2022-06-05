@@ -9,27 +9,28 @@ function HomePage({ addLocation, RemoveLocation, tempData, changeDetailPage }) {
         <div className='page'>
             <HomePageHeader
                 addLocation={addLocation}
+                changeDetailPage={changeDetailPage}
             />
             <TransitionGroup>
                 {
-                    tempData.map(tempLocation => (
+                    tempData.length > 0 ?
+                        tempData.map(tempLocation => (
 
-                        <CSSTransition
-                            key={tempLocation.location.name}
-                            timeout={500}
-                            classNames="item"
-                        >
-                            <Banner location={tempLocation?.location?.name}
-                                temperature={tempLocation?.current.temp_f}
-                                condition={tempLocation?.forecast.forecastday[0].day.condition.text}
-                                RemoveLocation={RemoveLocation}
-                                changeDetailPage={changeDetailPage}
-                                data={tempLocation}
+                            <CSSTransition
+                                key={tempLocation?.location?.name}
+                                timeout={500}
+                                classNames="item"
+                            >
+                                <Banner
+                                    RemoveLocation={RemoveLocation}
+                                    changeDetailPage={changeDetailPage}
+                                    data={tempLocation}
 
-                            />
+                                />
 
-                        </CSSTransition>
-                    ))
+                            </CSSTransition>
+                        ))
+                        : <div></div>
                 }
             </TransitionGroup>
         </div>
