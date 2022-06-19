@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude: lat, longitude: lng } = position.coords
-      console.log(position)
       fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
         .then(res => res.json())
         .then(data => addLocation(data.city))
@@ -21,43 +20,40 @@ function App() {
   }, [])
 
   const fetchData = async function (location) {
-    return fetch(`
+    return await fetch(`
     https://api.weatherapi.com/v1/
     forecast.json?key=${'dfa464158af4491f8e451132213004'}
     &q=${location}&days=7&aqi=no&alerts=no
     `)
   }
-
-  const addLocation = (location) => {
+  //add new location
+  const addLocation = async (location) => {
     //if tempData has the location already, not add the location to data
     if (tempData.some(data => {
       return data.location.name === location
     })) return
     //fetch and add data to tempData
-    fetchData(location).then(res => {
-      if (!res.ok) console.error(`something went wrong`)
-      return res.json()
-    })
-      .then(function (data) {
-        setTempData([...tempData, data])
-      })
-
+    try {
+      const fetchRes = await fetchData(location)
+      const dataFetched = await fetchRes.json()
+      setTempData([...tempData, dataFetched])
+    } catch (err) {
+      console.error('something went wrong')
+    }
   }
+  //remove location
   const RemoveLocation = (e) => {
     console.log(e)
     let newData = [...tempData]
     newData = newData.filter(locate => locate.location.name !== e)
     setTempData(newData)
   }
-  const changeDetailPage = (location) => {
-    fetchData(location).then(res => {
-      if (!res.ok) console.error(`something went wrong`)
-      return res.json()
-    })
-      .then(function (data) {
-        setDetailData(data);
-        setDetailLocation(location)
-      })
+  //fetch and change new data for detail page
+  const changeDetailPage = async (location) => {
+    const fetchRes = await fetchData(location)
+    const dataFetched = await fetchRes.json()
+    setDetailData(dataFetched)
+    setDetailLocation(location)
   }
   return (
     <div>
