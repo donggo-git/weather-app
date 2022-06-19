@@ -1,0 +1,38 @@
+.DetailFooterChance {
+    height: 70px;
+}
+
+.DetailFooterChance__limit {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.DetailFooterChance__progressBar {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    border-radius: 10rem;
+    background-color: rgb(188, 188, 188);
+}
+
+.DetailFooterChance__progressBar--percent {
+    position: absolute;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.4s;
+    transform: translateX(-25%);
+    width: 100px;
+}
+
+.DetailFooterChance__progressBar :hover~.DetailFooterChance__progressBar--percent {
+    opacity: 1;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .DetailFooterChance__progressBar :hover~.DetailFooterChance__progressBar--percent {
+        opacity: 0;
+    }
+}

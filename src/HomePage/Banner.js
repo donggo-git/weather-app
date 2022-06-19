@@ -7,7 +7,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 function Banner({ data, RemoveLocation, changeDetailPage }) {
     let nightBackground = 'https://wallpapercave.com/wp/wp2077619.jpg'
     let rainNightBackground = 'https://wallpapercave.com/wp/wp2529651.jpg'
-    let sunnyBackground = 'https://www.androidpolice.com/wp-content/uploads/2014/06/nexusae0_bg_weather_sunny_day.jpg';
+    let sunnyBackground = 'https://th.bing.com/th/id/OIP.rXupN4J01IrsMdJegwQLhQHaEY?w=275&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7';
     let rainBackground = 'https://ak7.picdn.net/shutterstock/videos/9915767/thumb/1.jpg';
 
     const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
