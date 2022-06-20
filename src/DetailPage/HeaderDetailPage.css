@@ -20,11 +20,12 @@
     position: relative;
     margin: 0 10px;
     justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .degreeF {
     font-size: 60px;
-    width: auto;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -36,7 +37,7 @@
 }
 
 .degreeF>div {
-    right: -30%;
+    right: -45%;
 }
 
 .otherDegree {

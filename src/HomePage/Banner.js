@@ -11,8 +11,6 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     let rainBackground = 'https://ak7.picdn.net/shutterstock/videos/9915767/thumb/1.jpg';
 
     const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
-    let sunset = parseInt(data?.forecast?.forecastday[0]?.astro?.sunset.split(":")[0])
-    let hour = new Date().getHours();
     let IsMorning = data?.current.is_day == 1;
 
     // check condition of the weather
