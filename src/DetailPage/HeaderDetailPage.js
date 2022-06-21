@@ -3,12 +3,26 @@ import './HeaderDetailPage.css';
 import { NavLink } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
-function HeaderDetailPage({ detailDataHeader, detailLocation }) {
+function HeaderDetailPage({ detailDataHeader, detailLocation, addLocation, checkLocation, RemoveLocation }) {
     return (
         <div className="DetailPage__headerContainer">
             <NavLink to="/weather-app" className="backBtn" >
                 <AiOutlineArrowLeft />
             </NavLink>
+            {!checkLocation(detailLocation) ?
+                <button
+                    className='HeaderDetailPage__btn HeaderDetailPage__btn--addBtn'
+                    onClick={() => addLocation(detailLocation)}
+                >
+                    Add location
+                </button> :
+                <button
+                    className='HeaderDetailPage__btn HeaderDetailPage__btn--removeBtn'
+                    onClick={() => RemoveLocation(detailLocation)}
+                >
+                    Remove location
+                </button>
+            }
             <div className="DetailPage__header">
 
                 <div className="DetailPage__header__location">

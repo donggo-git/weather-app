@@ -10,7 +10,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
     let sunnyBackground = 'https://th.bing.com/th/id/OIP.rXupN4J01IrsMdJegwQLhQHaEY?w=275&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7';
     let rainBackground = 'https://ak7.picdn.net/shutterstock/videos/9915767/thumb/1.jpg';
 
-    const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
+    const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist", 'Overcast']
     let IsMorning = data?.current.is_day == 1;
 
     // check condition of the weather
@@ -20,7 +20,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
                 return sunnyBackground;
             }
             else {
-                return rainNightBackground
+                return rainBackground
             }
         }
         else {
@@ -28,7 +28,7 @@ function Banner({ data, RemoveLocation, changeDetailPage }) {
                 return nightBackground;
             }
             else {
-                return rainBackground
+                return rainNightBackground
             }
         }
     }

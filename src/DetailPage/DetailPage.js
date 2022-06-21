@@ -5,15 +5,13 @@ import HourTempToday from './HourTempToday';
 import Forecast3Days from './Forecast3Days';
 import DetailFooter from './DetailFooter';
 
-function DetailPage({ detailData, detailLocation }) {
-    let hour = new Date().getHours();
-    let IsMorning = detailData.current.is_day == 1;
+function DetailPage({ detailData, detailLocation, addLocation, checkLocation, RemoveLocation }) {
+    let IsMorning = detailData?.current.is_day == 1;
     let sunnyBackground = 'https://th.bing.com/th/id/OIP.rXupN4J01IrsMdJegwQLhQHaEY?w=275&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7';
     let rainBackground = 'https://ak7.picdn.net/shutterstock/videos/9915767/thumb/1.jpg';
     let nightBackground = 'https://wallpapercave.com/wp/wp2077619.jpg'
     let rainNightBackground = 'https://wallpapercave.com/wp/wp2529651.jpg'
-    let sunset = parseInt(detailData?.forecast?.forecastday[0]?.astro?.sunset.split(":")[0])
-    const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist"]
+    const notRainCondition = ["Partly cloudy", "Sunny", "Clear", "Mist", 'Overcast']
 
     const checkCondition = (condition) => {
         if (IsMorning) {
@@ -21,15 +19,15 @@ function DetailPage({ detailData, detailLocation }) {
                 return sunnyBackground;
             }
             else {
-                return rainNightBackground
+                return rainBackground
             }
         }
         else {
-            if (condition == "Partly cloudy" || condition == "Sunny" || condition == "Clear") {
+            if (notRainCondition.indexOf(condition) >= 0) {
                 return nightBackground;
             }
             else {
-                return rainBackground
+                return rainNightBackground
             }
         }
     }
@@ -45,7 +43,11 @@ function DetailPage({ detailData, detailLocation }) {
             }
             <HeaderDetailPage
                 detailDataHeader={detailData}
-                detailLocation={detailLocation} />
+                detailLocation={detailLocation}
+                addLocation={addLocation}
+                checkLocation={checkLocation}
+                RemoveLocation={RemoveLocation}
+            />
             {
                 //content of detailPage
             }

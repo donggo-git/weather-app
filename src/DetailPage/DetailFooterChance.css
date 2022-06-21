@@ -22,7 +22,6 @@
     font-weight: bold;
     opacity: 0;
     transition: opacity 0.4s;
-    transform: translateX(-25%);
     width: 100px;
 }
 

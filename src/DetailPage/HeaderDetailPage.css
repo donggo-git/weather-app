@@ -45,6 +45,32 @@
     justify-content: center;
 }
 
+.HeaderDetailPage__btn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 150px;
+    padding: 15px 0;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.HeaderDetailPage__btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.HeaderDetailPage__btn--addBtn {
+    border: none;
+}
+
+.HeaderDetailPage__btn--removeBtn {
+    background: none;
+    border: 1px solid white;
+    color: white;
+}
+
 .backBtn {
     font-size: 25px;
     color: #fff;

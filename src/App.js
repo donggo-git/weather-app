@@ -26,12 +26,14 @@ function App() {
     &q=${location}&days=7&aqi=no&alerts=no
     `)
   }
+  //check location in tempData
+  const checkLocation = (location) => {
+    return tempData.some(data => data.location.name === location)
+  }
   //add new location
   const addLocation = async (location) => {
     //if tempData has the location already, not add the location to data
-    if (tempData.some(data => {
-      return data.location.name === location
-    })) return
+    if (checkLocation(location)) return
     //fetch and add data to tempData
     try {
       const fetchRes = await fetchData(location)
@@ -79,6 +81,9 @@ function App() {
                   <DetailPage
                     detailData={detailData}
                     detailLocation={detailLocation}
+                    addLocation={addLocation}
+                    checkLocation={checkLocation}
+                    RemoveLocation={RemoveLocation}
                   />)}
                 />
               </Switch>
