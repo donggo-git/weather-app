@@ -11,11 +11,17 @@ function App() {
   const [detailLocation, setDetailLocation] = useState();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude: lat, longitude: lng } = position.coords
-      fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-        .then(res => res.json())
-        .then(data => addLocation(data.city))
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      try {
+        const { latitude: lat, longitude: lng } = position.coords
+        if (lat == undefined || lng == undefined) return;
+        const resLocation = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+        const location = await resLocation.json()
+        addLocation(location.city)
+      } catch (err) {
+        console.log(`something wrong ${err.message}`);
+        return;
+      }
     })
   }, [])
 
