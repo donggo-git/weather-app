@@ -73,3 +73,24 @@
     }
 
 }
+
+@media screen and (max-width: 430px) {
+
+    .Forecast1Day__date,
+    .Forecast3Days__title--date {
+        padding-left: 0px;
+    }
+
+    .Forecast1Day__maxTemp,
+    .Forecast3Days__title--max {
+        padding-right: 0px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .Forecast1Day__minTemp {
+        height: fit-content;
+        width: fit-content;
+        margin-right: 0;
+    }
+}

@@ -14,9 +14,11 @@ function App() {
     navigator.geolocation.getCurrentPosition(async function (position) {
       try {
         const { latitude: lat, longitude: lng } = position.coords
+        console.log(`lat: ${lat}, lng: ${lng}`)
         if (lat == undefined || lng == undefined) return;
         const resLocation = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
         const location = await resLocation.json()
+        console.log(location)
         addLocation(location.city)
       } catch (err) {
         console.log(`something wrong ${err.message}`);
@@ -44,6 +46,7 @@ function App() {
     try {
       const fetchRes = await fetchData(location)
       const dataFetched = await fetchRes.json()
+      console.log(dataFetched)
       setTempData([...tempData, dataFetched])
     } catch (err) {
       console.error('something went wrong')

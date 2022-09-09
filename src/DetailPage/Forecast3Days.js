@@ -11,8 +11,8 @@ function Predit7Day({ forecastday }) {
             <div className='Forecast3Days__title'>
                 <p className='Forecast3Days__title--date'>Date</p>
                 <p className='Forecast3Days__title--condition'>Condition</p>
-                <p className='Forecast3Days__title--max'>Max Temp</p>
-                <p className='Forecast3Days__title--min'>Min Temp</p>
+                <p className='Forecast3Days__title--max'>{window.innerWidth > 1000 ? 'Max Temp' : 'Max'}</p>
+                <p className='Forecast3Days__title--min'>{window.innerWidth > 1000 ? 'Min Temp' : 'Min'}</p>
             </div>
             {forecastday ? forecastday.map((day, index) => (
                 <div className="Forecast1Day" key={index}>

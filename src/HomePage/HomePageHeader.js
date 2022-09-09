@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './HomePageHeader.css'
 import { BsSearch } from 'react-icons/bs'
-import useDebounce from 'C:/project/weather-app/src/Hooks/useDebounce';
+import useDebounce from '../Hooks/useDebounce';
 import SearchLocationList from './SearchLocationList';
 function LocationForm({ addLocation, changeDetailPage }) {
     const [locationInput, setLocationInput] = useState('')
