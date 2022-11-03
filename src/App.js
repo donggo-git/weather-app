@@ -19,7 +19,7 @@ function App() {
         const resLocation = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
         const location = await resLocation.json()
         console.log(location)
-        addLocation(location.city)
+        addLocation(location.region)
       } catch (err) {
         console.log(`something wrong ${err.message}`);
         return;

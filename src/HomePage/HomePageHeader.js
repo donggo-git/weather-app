@@ -6,7 +6,7 @@ import SearchLocationList from './SearchLocationList';
 function LocationForm({ addLocation, changeDetailPage }) {
     const [locationInput, setLocationInput] = useState('')
     const [locationList, setLocationList] = useState([])
-    const debounce = useDebounce(locationInput, 200)
+    const debounce = useDebounce(locationInput, 400)
 
 
     useEffect(() => {
