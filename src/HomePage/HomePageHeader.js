@@ -16,10 +16,10 @@ function LocationForm({ addLocation, changeDetailPage }) {
     const handleSearchInput = (input) => {
         setLocationInput(input)
     }
-    const searchLocation = (location) => {
-        fetch(`http://api.weatherapi.com/v1/search.json?key=${'dfa464158af4491f8e451132213004'}&q=${location}`)
-            .then(res => res.json())
-            .then(data => setLocationList(data))
+    const searchLocation = async (location) => {
+        const res = await fetch(`http://api.weatherapi.com/v1/search.json?key=${'dfa464158af4491f8e451132213004'}&q=${location}`)
+        const data = await res.json()
+        setLocationList(data)
     }
 
     const addLocationInput = (e, location) => {
