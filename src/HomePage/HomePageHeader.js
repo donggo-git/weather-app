@@ -17,7 +17,7 @@ function LocationForm({ addLocation, changeDetailPage }) {
         setLocationInput(input)
     }
     const searchLocation = async (location) => {
-        const res = await fetch(`http://api.weatherapi.com/v1/search.json?key=${'dfa464158af4491f8e451132213004'}&q=${location}`)
+        const res = await fetch(`https://api.weatherapi.com/v1/search.json?key=${'dfa464158af4491f8e451132213004'}&q=${location}`)
         const data = await res.json()
         setLocationList(data)
     }
