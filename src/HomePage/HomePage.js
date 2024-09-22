@@ -33,6 +33,9 @@ function HomePage({ addLocation, RemoveLocation, tempData, changeDetailPage }) {
                         : <div></div>
                 }
             </TransitionGroup>
+            <iframe src="https://test.college-affordability-estimator.uw.edu/embed?id=cce1bb7c11ab4b4dbeab763b2a251242"
+                height="100%" width="100%" data-embed="true" class="tutorial-frame"><br />
+            </iframe>
         </div>
     )
 }
