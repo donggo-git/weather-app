@@ -11,20 +11,7 @@ function App() {
   const [detailLocation, setDetailLocation] = useState();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(async function (position) {
-      try {
-        const { latitude: lat, longitude: lng } = position.coords
-        console.log(`lat: ${lat}, lng: ${lng}`)
-        if (lat == undefined || lng == undefined) return;
-        const resLocation = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-        const location = await resLocation.json()
-        console.log(location)
-        addLocation(location.region)
-      } catch (err) {
-        console.log(`something wrong ${err.message}`);
-        return;
-      }
-    })
+    addLocation("Seattle")
   }, [])
 
   const fetchData = async function (location) {
